@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+
+    background-color: #E5E5E5;
+}
+
+h1, h2 {
+
+    font-family: 'Righteous', cursive;
+}
+
+h3, p {
+
+    font-family: 'Roboto', sans-serif;
+}
+
+h2 {
+
+    font-size: 26px;
+    color: #333333;
+}
+
+h3 {
+
+    font-size: 16px;
+    font-weight: 700;
+    color: #333333
+}
+
+header {
+
+    width: 100%;
+    position: fixed;
+    z-index: 9999;
+}
+
+header .container {
+
+    width: 414px;
+    height: 92px;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-top: 15px;
+    background-color: #CF2B2B;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.container h1 {
+
+    font-size: 44px;
+    font-weight: 400;
+    color: white
+}
+
+.container p {
+
+    font-size: 18px;
+    color: white;
+}
+
+.main {
+
+    padding-top: 112px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: blue;
+}
+
+.main > div {
+
+    width: 414px;
+    background-color: green;
+}
+
+.content-container {
+
+    height: 216px;
+    display: flex;
+    background-color: yellow;
+    overflow: hidden;
+    overflow-x: scroll;
+    gap: 20px;
+    padding: 0 20px;
+}
+
+.content {
+
+    width: 172px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.content img {
+
+    width: 144px;
+    height: 87px;
+    border-radius: 4px;
+}
+
+.content .description{
+
+    font-size: 15px;
+    font-weight: 300;
+    color: #A6A6A6;
+}
+
+.content .price{
+
+    font-size: 16px;
+    font-weight: 400;
+}
