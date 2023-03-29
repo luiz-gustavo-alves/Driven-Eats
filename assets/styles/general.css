@@ -23,6 +23,7 @@ h2 {
 
     font-size: 26px;
     color: #333333;
+    padding-bottom:15px;
 }
 
 h3 {
@@ -37,9 +38,18 @@ header {
     width: 100%;
     position: fixed;
     z-index: 9999;
+    top: 0;
 }
 
-header .container {
+footer {
+
+    width: 100%;
+    position: fixed;
+    z-index: 9999;
+    bottom: 0;
+}
+
+header .head-container {
 
     width: 414px;
     height: 92px;
@@ -50,14 +60,14 @@ header .container {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.container h1 {
+.head-container h1 {
 
     font-size: 44px;
     font-weight: 400;
     color: white
 }
 
-.container p {
+.head-container p {
 
     font-size: 18px;
     color: white;
@@ -67,29 +77,26 @@ header .container {
 
     width: 414px;
     margin: 0 auto;
-    padding-top: 112px;
+    padding: 100px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: blue;
-    gap: 25px;
 }
 
 .main > div {
 
     width: 100%;
-    background-color: green;
+    margin: 15px 0;
+    padding-left: 15px;
 }
 
 .content-container {
 
     height: 216px;
     display: flex;
-    background-color: yellow;
     overflow: hidden;
     overflow-x: scroll;
-    gap: 20px;
-    padding: 0 20px;
+    gap: 15px;
 }
 
 .content {
@@ -100,6 +107,7 @@ header .container {
     background-color: white;
     border-radius: 5px;
     padding: 10px;
+    box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.25);
 }
 
 .content img {
@@ -120,4 +128,32 @@ header .container {
 
     font-size: 16px;
     font-weight: 400;
+}
+
+footer .footer-container {
+
+    width: 414px;
+    height: 92px;
+    background-color: white;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.order-button {
+
+    width: 364px;
+    height: 61px;
+    background: #CBCBCB;
+    border: none;
+    border-radius: 50px;
+}
+
+.order-button p {
+
+    font-size: 20px;
+    font-weight: 400;
+    text-align: center;
+    color: white;
 }
