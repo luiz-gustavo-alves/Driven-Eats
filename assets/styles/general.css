@@ -65,6 +65,8 @@ header .container {
 
 .main {
 
+    width: 414px;
+    margin: 0 auto;
     padding-top: 112px;
     display: flex;
     flex-direction: column;
@@ -74,7 +76,7 @@ header .container {
 
 .main > div {
 
-    width: 414px;
+    width: 100%;
     background-color: green;
 }
 
