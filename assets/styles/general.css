@@ -162,3 +162,14 @@ footer .footer-container {
 
     border: 4px solid #41d741;
 }
+
+.finished-order {
+
+    background-color: #32B72F;
+    cursor: pointer;
+}
+
+.finished-order p {
+
+    font-weight: 700;
+}
