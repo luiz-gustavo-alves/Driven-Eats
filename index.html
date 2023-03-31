@@ -47,23 +47,23 @@
                 </div>
             </div>
         </div>
-        <div class="beverage-container">
+        <div class="drink-container">
             <h2>Agora, sua bebida</h2>
             <div class="content-container">
-                <div class="content">
-                    <img src="./assets/images/beverage/coca-cola.png"/>
+                <div class="content" onclick="chooseProduct(this)">
+                    <img src="./assets/images/drink/coca-cola.png"/>
                     <h3>Coquinha gelada</h3>
                     <p class="description">Lata 350ml</p>
                     <p class="price">R$ 4,90</p>
                 </div>
-                <div class="content">
-                    <img src="./assets/images/beverage/coca-cola.png"/>
+                <div class="content" onclick="chooseProduct(this)">
+                    <img src="./assets/images/drink/coca-cola.png"/>
                     <h3>Coquinha gelada</h3>
                     <p class="description">Lata 350ml</p>
                     <p class="price">R$ 4,90</p>
                 </div>
-                <div class="content">
-                    <img src="./assets/images/beverage/coca-cola.png"/>
+                <div class="content" onclick="chooseProduct(this)">
+                    <img src="./assets/images/drink/coca-cola.png"/>
                     <h3>Coquinha gelada</h3>
                     <p class="description">Lata 350ml</p>
                     <p class="price">R$ 4,90</p>
@@ -97,10 +97,12 @@
 
     <footer>
         <div class="footer-container">
-            <button disabled class="order-button">
+            <button disabled class="order-button" data-test="order-btn">
                 <p>Selecione os 3 itens <br> para fechar o pedido</p>
             </button>
         </div>
     </footer>
+
+    <script src="./scripts/general.js"></script>
 </body>
 </html>

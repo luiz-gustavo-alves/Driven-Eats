@@ -157,3 +157,8 @@ footer .footer-container {
     text-align: center;
     color: white;
 }
+
+.chosen-product {
+
+    border: 4px solid #41d741;
+}
