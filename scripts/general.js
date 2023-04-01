@@ -1,9 +1,13 @@
-/* Inicializar arrays de produtos selecionados, tipos de produto e precos do produto */
-let selectedProducts = [];
-let productsPrices = [];
-let productsType = [];
+/* Inicializar arrays de produtos selecionados, tipos de produto e precos do produto. */
+const selectedProducts = [];
+const productsPrices = [];
+const productsType = [];
 
 let totalProductsPrices = 0;
+
+/*  Flag para impedir que o cliente modifique a seleção dos produtos enquanto
+ *  a caixa de confirmação dos produtos estiver ativa.
+ */
 let finishingOrder = false;
 
 const main = document.querySelector(".main");
@@ -14,10 +18,22 @@ for (let i = 0; i < main.children.length; i++) {
     productsType.push("." + main.children[i].className); 
 } 
 
-function parseProductPrice(price) {
+function parseProductPrice(price, inverseParser) {
 
-    const parser = price.split(" ");
-    return parser[1].replace(",", ".");
+    price = price.toString();
+    
+    let parser;
+    if (price.includes(" ")) {
+
+        parser = price.split(" ");
+        parser = parser[1];
+    }  
+    else {
+        
+        parser = price;
+    }
+
+    return inverseParser ? parser.replace(".", ",") : parser.replace(",", ".");
 }
 
 function calcProductsPrices() {
@@ -36,14 +52,14 @@ function chooseProduct(productType, selector) {
 
         const lastChosenProduct = document.querySelector(productType + " .chosen-product");
 
-        /* Remove borda verde e check icon do ultimo item do tipo do produto selecionado */
+        /* Remove borda verde e check icon do ultimo item do tipo do produto selecionado. */
         if (lastChosenProduct != null) {
     
             lastChosenProduct.classList.remove("chosen-product");
             lastChosenProduct.children[4].classList.add("hidden");
         }
     
-        /* Adiciona borda verde e check icon do atual item selecionado */
+        /* Adiciona borda verde e check icon do atual item selecionado. */
         selector.classList.add("chosen-product");
         selector.children[4].classList.remove("hidden");
     
@@ -59,14 +75,14 @@ function insertProduct(productType, selectedProduct, productPrice) {
     const productIndex = productsType.indexOf(productType);
 
     selectedProducts[productIndex] = selectedProduct;
-    productsPrices[productIndex] = Number(parseProductPrice(productPrice));
+    productsPrices[productIndex] = Number(parseProductPrice(productPrice, false));
 
     checkButton();
 }
 
 function checkButton() {
 
-    /* Verifica se o usuario selecionou todos os produtos antes de fechar pedido */
+    /* Verifica se o usuario selecionou todos os produtos e calcula o preço total antes de fechar pedido. */
     if (!selectedProducts.includes(null)) {
 
        const orderBtn = document.querySelector(".order-button");
@@ -75,26 +91,54 @@ function checkButton() {
        orderBtn.classList.add("finished-order");
        orderBtn.children[0].innerText = "Fechar pedido";
 
-       totalProductsPrices = (calcProductsPrices().toString()).replace(".", ",");
+       totalProductsPrices =  calcProductsPrices();
     }
 }
 
 function confirmationOrder() {
 
+    /* Exibe caixa de confirmação de pedido. */
+
     finishingOrder = true;
 
     const pageContent = document.querySelector(".page-content");
-    pageContent.classList.add("opacity");
-
+    const confirmationBox = document.querySelector(".confirmation-order-container");
     const orderBtn = document.querySelector(".order-button");
+    
+    pageContent.classList.add("opacity");
+    confirmationBox.classList.remove("hidden");
     orderBtn.setAttribute("disabled", "disabled");
 
+    const products = document.querySelector(".selected-products");
+    for (let i = 0; i < products.children.length - 1; i++) {
+
+        const product = products.children[i];
+        const price = productsPrices[i].toFixed(2);
+
+        product.children[0].innerText = selectedProducts[i];
+        product.children[1].innerText = parseProductPrice(price, true);
+    }
+
+    const totalPrice = document.querySelector(".total-price");
+    totalPrice.children[1].innerText = `RS ${parseProductPrice(totalProductsPrices, true)}`;
+}
+
+function resetOpacity() {
+
+    finishingOrder = false;
+
+    const pageContent = document.querySelector(".page-content");
     const confirmationBox = document.querySelector(".confirmation-order-container");
-    console.log(confirmationBox);
-    confirmationBox.classList.remove("hidden");
+    const orderBtn = document.querySelector(".order-button");
+
+    pageContent.classList.remove("opacity");
+    confirmationBox.classList.add("hidden");
+    orderBtn.removeAttribute("disabled");
 }
 
 function nameAdressPrompt() {
+
+    resetOpacity();
 
     let username = prompt("Digite seu nome: ");
     let address = prompt("Digite seu endereço: ");
@@ -112,7 +156,7 @@ function finishOrder(username, address) {
     msg += `- Prato: ${selectedProducts[0]} `;
     msg += `- Bebida: ${selectedProducts[1]} `;
     msg += `- Sobremesa: ${selectedProducts[2]} `;
-    msg += `Total: R$ ${totalProductsPrices} `;
+    msg += `Total: R$ ${parseProductPrice(totalProductsPrices, true)} `;
     msg += ``
     msg += `Nome: ${username} `
     msg += `Endereço: ${address} `
