@@ -4,8 +4,7 @@ let productsPrices = [];
 let productsType = [];
 
 let totalProductsPrices = 0;
-
-let confirmationBox = false;
+let finishingOrder = false;
 
 const main = document.querySelector(".main");
 for (let i = 0; i < main.children.length; i++) { 
@@ -33,7 +32,7 @@ function calcProductsPrices() {
 
 function chooseProduct(productType, selector) {
 
-    if (!confirmationBox) {
+    if (!finishingOrder) {
 
         const lastChosenProduct = document.querySelector(productType + " .chosen-product");
 
@@ -82,10 +81,17 @@ function checkButton() {
 
 function confirmationOrder() {
 
-    confirmationBox = true;
+    finishingOrder = true;
 
     const pageContent = document.querySelector(".page-content");
     pageContent.classList.add("opacity");
+
+    const orderBtn = document.querySelector(".order-button");
+    orderBtn.setAttribute("disabled", "disabled");
+
+    const confirmationBox = document.querySelector(".confirmation-order-container");
+    console.log(confirmationBox);
+    confirmationBox.classList.remove("hidden");
 }
 
 function nameAdressPrompt() {
@@ -93,7 +99,7 @@ function nameAdressPrompt() {
     let username = prompt("Digite seu nome: ");
     let address = prompt("Digite seu endereço: ");
 
-    if (username == null) userName = "";
+    if (username == null) username = "";
     if (address == null) address = "";
 
     finishOrder(username, address);

@@ -192,7 +192,7 @@ footer .footer-container {
     opacity: 0.25;
 }
 
-#confirmation-order-container {
+.confirmation-order-container {
 
     opacity: 1;
     background-color: #50D074;
@@ -210,6 +210,70 @@ footer .footer-container {
 
     z-index: 9998;
 }
+
+.confirmation-order-content {
+
+    font-size: 22px;
+    color: white;
+} 
+
+.confirmation-text {
+
+    font-weight: 700;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+
+.selected-products {
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.selected-products > div {
+
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px;
+}
+
+.products-content {
+
+    font-weight: 500;
+}
+
+.total-price {
+
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.confirmation-order-container button {
+
+    width: 329px;
+    height: 52px;
+    border: none;
+    cursor: pointer;
+    font-size: 22px;
+    font-weight: 700;
+    margin-left: 25px;
+}
+
+.confirmation-order-container .accept-button {
+
+    color: #50D074;
+    background: white;
+    border-radius: 50px;
+}
+
+.confirmation-order-container .cancel-button {
+
+    color: white;
+    background: inherit;    
+}
+
 
 .hidden {
 
