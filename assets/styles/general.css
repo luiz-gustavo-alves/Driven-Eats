@@ -36,17 +36,12 @@ h3 {
 header {
 
     width: 100%;
+    background-color: #CF2B2B;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
     position: fixed;
     z-index: 9999;
     top: 0;
-}
-
-footer {
-
-    width: 100%;
-    position: fixed;
-    z-index: 9999;
-    bottom: 0;
 }
 
 header .head-container {
@@ -56,8 +51,26 @@ header .head-container {
     margin: 0 auto;
     padding-left: 20px;
     padding-top: 15px;
-    background-color: #CF2B2B;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+footer {
+
+    width: 100%;
+    background-color: white;
+    
+    position: fixed;
+    z-index: 9999;
+    bottom: 0;
+}
+
+footer .footer-container {
+
+    width: 414px;
+    height: 92px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .head-container h1 {
@@ -146,17 +159,6 @@ header .head-container {
     display: none;
 }
 
-footer .footer-container {
-
-    width: 414px;
-    height: 92px;
-    background-color: white;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .order-button {
 
     width: 364px;
@@ -188,4 +190,9 @@ footer .footer-container {
 .finished-order p {
 
     font-weight: 700;
+}
+
+.opacity {
+
+    opacity: 0.25;
 }

@@ -75,14 +75,28 @@ function checkButton() {
     }
 }
 
-function finishOrder() {
+function confirmationOrder() {
 
-    let msg = `Olá, gostaria de fazer o pedido:\n`;
+    let username = prompt("Digite seu nome: ");
+    let address = prompt("Digite seu endereço: ");
 
-    msg += ` - Prato: ${selectedProducts[0]}`;
-    msg += ` - Bebida: ${selectedProducts[1]}`;
-    msg += ` - Sobremesa: ${selectedProducts[2]}`;
-    msg += ` - Total: R$ ${totalProductsPrices}`;
+    if (username == null) userName = "";
+    if (address == null) address = "";
+
+    finishOrder(username, address);
+}
+
+function finishOrder(username, address) {
+
+    let msg = `Olá, gostaria de fazer o pedido: `;
+
+    msg += `- Prato: ${selectedProducts[0]} `;
+    msg += `- Bebida: ${selectedProducts[1]} `;
+    msg += `- Sobremesa: ${selectedProducts[2]} `;
+    msg += `Total: R$ ${totalProductsPrices} `;
+    msg += ``
+    msg += `Nome: ${username} `
+    msg += `Endereço: ${address} `
 
     window.open("https://wa.me/5599999999999?text=" + msg);
 }
