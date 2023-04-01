@@ -151,15 +151,14 @@ function nameAdressPrompt() {
 
 function finishOrder(username, address) {
 
-    let msg = `Olá, gostaria de fazer o pedido: `;
+    let msg = `Olá, gostaria de fazer o pedido:\n`;
 
-    msg += `- Prato: ${selectedProducts[0]} `;
-    msg += `- Bebida: ${selectedProducts[1]} `;
-    msg += `- Sobremesa: ${selectedProducts[2]} `;
-    msg += `Total: R$ ${parseProductPrice(totalProductsPrices, true)} `;
-    msg += ``
-    msg += `Nome: ${username} `
-    msg += `Endereço: ${address} `
+    msg += `- Prato: ${selectedProducts[0]}\n`;
+    msg += `- Bebida: ${selectedProducts[1]}\n`;
+    msg += `- Sobremesa: ${selectedProducts[2]}\n`;
+    msg += `Total: R$ ${parseProductPrice(totalProductsPrices, true)}\n\n`;
+    msg += `Nome: ${username}\n`
+    msg += `Endereço: ${address}\n`
 
     window.open("https://wa.me/5599999999999?text=" + (encodeURIComponent(msg)));
 }
