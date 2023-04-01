@@ -203,7 +203,7 @@ footer .footer-container {
     border-radius: 9px;
     margin: auto auto auto auto;
 
-    position: absolute;
+    position: fixed;
     right: 0;
     left: 0;
     top: 0;
