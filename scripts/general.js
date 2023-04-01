@@ -5,6 +5,8 @@ let productsType = [];
 
 let totalProductsPrices = 0;
 
+let confirmationBox = false;
+
 const main = document.querySelector(".main");
 for (let i = 0; i < main.children.length; i++) { 
 
@@ -31,23 +33,26 @@ function calcProductsPrices() {
 
 function chooseProduct(productType, selector) {
 
-    const lastChosenProduct = document.querySelector(productType + " .chosen-product");
+    if (!confirmationBox) {
 
-    /* Remove borda verde e check icon do ultimo item do tipo do produto selecionado */
-    if (lastChosenProduct != null) {
+        const lastChosenProduct = document.querySelector(productType + " .chosen-product");
 
-        lastChosenProduct.classList.remove("chosen-product");
-        lastChosenProduct.children[4].classList.add("disabled-check-icon");
-    }
-
-    /* Adiciona borda verde e check icon do atual item selecionado */
-    selector.classList.add("chosen-product");
-    selector.children[4].classList.remove("disabled-check-icon");
-
-    const selectedProduct = document.querySelector(productType + " .chosen-product" + " h3").innerText;
-    const productPrice = document.querySelector(productType + " .chosen-product" + " .price").innerText;
+        /* Remove borda verde e check icon do ultimo item do tipo do produto selecionado */
+        if (lastChosenProduct != null) {
     
-    insertProduct(productType, selectedProduct, productPrice);
+            lastChosenProduct.classList.remove("chosen-product");
+            lastChosenProduct.children[4].classList.add("hidden");
+        }
+    
+        /* Adiciona borda verde e check icon do atual item selecionado */
+        selector.classList.add("chosen-product");
+        selector.children[4].classList.remove("hidden");
+    
+        const selectedProduct = document.querySelector(productType + " .chosen-product" + " h3").innerText;
+        const productPrice = document.querySelector(productType + " .chosen-product" + " .price").innerText;
+        
+        insertProduct(productType, selectedProduct, productPrice);
+    }
 }
 
 function insertProduct(productType, selectedProduct, productPrice) {
@@ -76,6 +81,14 @@ function checkButton() {
 }
 
 function confirmationOrder() {
+
+    confirmationBox = true;
+
+    const pageContent = document.querySelector(".page-content");
+    pageContent.classList.add("opacity");
+}
+
+function nameAdressPrompt() {
 
     let username = prompt("Digite seu nome: ");
     let address = prompt("Digite seu endereço: ");
