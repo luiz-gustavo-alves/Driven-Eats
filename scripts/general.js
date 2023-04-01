@@ -161,5 +161,5 @@ function finishOrder(username, address) {
     msg += `Nome: ${username} `
     msg += `Endereço: ${address} `
 
-    window.open("https://wa.me/5599999999999?text=" + msg);
+    window.open("https://wa.me/5599999999999?text=" + (encodeURIComponent(msg)));
 }
